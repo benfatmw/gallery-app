@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.lin.mobile.gallery.remote"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            debuggable true
+            testCoverageEnabled true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    def versions = rootProject.ext.versions
+
+    implementation project(':presentation')
+    implementation project(':data')
+    implementation project(':domain')
+    implementation project(':cache')
+    implementation project(':remote')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin_version}"
+    implementation "androidx.appcompat:appcompat:${versions.app_compat}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraint_layout}"
+
+    implementation "androidx.navigation:navigation-fragment:${versions.ax_navigation}"
+    implementation "androidx.navigation:navigation-ui:${versions.ax_navigation}"
+    implementation "androidx.lifecycle:lifecycle-runtime:${versions.ax_lifecycle}"
+    implementation "androidx.lifecycle:lifecycle-extensions:${versions.ax_lifecycle}"
+    implementation "io.reactivex.rxjava2:rxjava:${versions.rxjava}"
+    implementation "io.reactivex.rxjava2:rxkotlin:${versions.rxkotlin}"
+    implementation "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}"
+    implementation "javax.inject:javax.inject:${versions.javax_inject}"
+
+    implementation "com.google.dagger:dagger:${versions.dagger}"
+    kapt "com.google.dagger:dagger-compiler:${versions.dagger}"
+    kapt "com.google.dagger:dagger-android-processor:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android-support:${versions.dagger}"
+    implementation "androidx.room:room-runtime:${versions.room}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.gson}"
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // test
+    implementation "androidx.legacy:legacy-support-v4:${versions.ax_legacy}"
+    testImplementation "junit:junit:${versions.junit}"
+    androidTestImplementation "androidx.test:runner:${versions.android_test_runner}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${versions.espresso}"
+
+
+}

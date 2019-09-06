@@ -1,0 +1,1 @@
+include ':mobile-ui', ':presentation', ':domain', ':core', ':data', ':cache', ':cache', ':cache', ':remote'

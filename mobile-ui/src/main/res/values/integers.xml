@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="image_target_width">200</integer>
+    <integer name="image_target_height">200</integer>
+    <integer name="grid_images_columns_number">2</integer>
+    <integer name="grid_albums_columns_number">1</integer>
+</resources>

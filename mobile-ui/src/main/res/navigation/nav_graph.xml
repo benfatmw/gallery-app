@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/browseAlbumsFragment">
+
+    <fragment
+        android:id="@+id/browseAlbumsFragment"
+        android:name="com.lin.mobile.gallery.ui.albums.BrowseAlbumsFragment"
+        android:label="BrowseAlbumsFragment" >
+        <action
+            android:id="@+id/action_browseAlbumsFragment_to_browsePhotosFragment"
+            app:destination="@id/browsePhotosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/browsePhotosFragment"
+        android:name="com.lin.mobile.gallery.ui.photos.BrowsePhotosFragment"
+        android:label="BrowsePhotosFragment" />
+</navigation>

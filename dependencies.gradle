@@ -1,0 +1,26 @@
+ext {
+
+    versions = [
+            android_support: '28.0.0',
+            app_compat: '1.0.2',
+            ax_lifecycle: '2.0.0',
+            ax_navigation: '2.0.0',
+            ax_legacy: '1.0.0',
+            constraint_layout: '1.1.3',
+            dagger: '2.17',
+            javax_inject: '1',
+            kotlin_version: '1.3.21',
+            rxandroid: '2.1.0',
+            rxjava: '2.2.10',
+            rxkotlin: '2.3.0',
+            room: '2.1.0',
+            retrofit: '2.3.0',
+            gson: '2.1.0',
+            picasso: '2.71828',
+
+            // test
+            junit: '4.12',
+            android_test_runner: '1.2.0',
+            espresso: '3.2.0'
+    ]
+}

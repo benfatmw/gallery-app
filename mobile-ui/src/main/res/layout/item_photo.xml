@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+
+    <variable
+        name="photo"
+        type="com.lin.mobile.gallery.ui.model.PhotoViewModel" />
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:background="?android:attr/selectableItemBackground"
+android:layout_marginTop="@dimen/small_margin"
+android:layout_marginBottom="@dimen/small_margin"
+android:clickable="true"
+android:focusable="true">
+
+
+<TextView
+    android:id="@+id/image_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@{photo.title}"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/image_title"
+    app:layout_constraintStart_toStartOf="parent"
+    android:textSize="@dimen/photo_header"
+    android:ellipsize="end"
+    android:maxLines="1"
+    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <ImageView
+        android:id="@+id/photo_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imageUrl="@{photo.url}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/image_title"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </layout>

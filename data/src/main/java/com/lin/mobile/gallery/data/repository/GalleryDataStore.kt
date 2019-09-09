@@ -2,6 +2,7 @@ package com.lin.mobile.gallery.data.repository
 
 import com.lin.mobile.gallery.data.model.AlbumData
 import com.lin.mobile.gallery.data.model.PhotoData
+import com.lin.mobile.gallery.data.model.UserData
 import io.reactivex.Flowable
 import io.reactivex.Single
 
@@ -17,4 +18,6 @@ interface GalleryDataStore {
     fun getAlbums(): Flowable<List<AlbumData>>
 
     fun getPhotos(albumId:Int): Flowable<List<PhotoData>>
+
+    fun getUsers(userId:Int): Flowable<List<UserData>>
 }

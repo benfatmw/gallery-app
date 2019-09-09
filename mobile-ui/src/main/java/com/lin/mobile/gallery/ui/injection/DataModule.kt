@@ -15,6 +15,7 @@ import com.lin.mobile.gallery.remote.GalleryRemote
 import com.lin.mobile.gallery.remote.GetRemoteDataService
 import com.lin.mobile.gallery.remote.mapper.AlbumMapper
 import com.lin.mobile.gallery.remote.mapper.PhotoMapper
+import com.lin.mobile.gallery.remote.mapper.UserMapper
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -36,9 +37,10 @@ open class DataModule {
     internal fun providePosRepository(
         factory: GalleryDataStoreFactory,
         albumMapper: com.lin.mobile.gallery.data.mapper.AlbumMapper,
-        photoMapper: com.lin.mobile.gallery.data.mapper.PhotoMapper
+        photoMapper: com.lin.mobile.gallery.data.mapper.PhotoMapper,
+        userMapper: com.lin.mobile.gallery.data.mapper.UserMapper
     ): GalleryRepository {
-        return GalleryDataRepository(factory, albumMapper,photoMapper)
+        return GalleryDataRepository(factory, albumMapper,photoMapper,userMapper)
     }
 
     @Provides
@@ -55,9 +57,10 @@ open class DataModule {
     @Named("remote")
     internal fun provideRemoteGalleryDataStore(api : GetRemoteDataService,
                                                albumMapper: AlbumMapper,
-                                               photoMapper: PhotoMapper
+                                               photoMapper: PhotoMapper,
+                                               userMapper: UserMapper
     ): GalleryDataStore {
-        return GalleryRemote(api,albumMapper,photoMapper)
+        return GalleryRemote(api,albumMapper,photoMapper,userMapper)
     }
 
     @Singleton

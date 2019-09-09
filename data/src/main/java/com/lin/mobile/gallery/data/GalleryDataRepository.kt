@@ -2,10 +2,12 @@ package com.lin.mobile.gallery.data
 
 import com.lin.mobile.gallery.data.mapper.AlbumMapper
 import com.lin.mobile.gallery.data.mapper.PhotoMapper
+import com.lin.mobile.gallery.data.mapper.UserMapper
 
 import com.lin.mobile.gallery.data.source.GalleryDataStoreFactory
 import com.lin.mobile.gallery.domain.model.Album
 import com.lin.mobile.gallery.domain.model.Photo
+import com.lin.mobile.gallery.domain.model.User
 import com.lin.mobile.gallery.domain.repository.GalleryRepository
 import io.reactivex.Flowable
 import javax.inject.Inject
@@ -16,9 +18,16 @@ import javax.inject.Inject
  */
 class GalleryDataRepository @Inject constructor(private val factory: GalleryDataStoreFactory,
                                                 private val albumMapper: AlbumMapper,
-                                                private val photoMapper: PhotoMapper
+                                                private val photoMapper: PhotoMapper,
+                                                private val userMapper: UserMapper
 ) :
     GalleryRepository {
+    override fun getUser(userId: Int): Flowable<List<User>> {
+        return factory.retrieveDataStore(false).getUsers(userId)
+            .map {
+                userMapper.mapToEntity(it)
+            }
+    }
 
     override fun getAlbums(): Flowable<List<Album>> {
         return factory.retrieveDataStore(false).getAlbums()
